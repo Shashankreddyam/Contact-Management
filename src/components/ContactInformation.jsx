@@ -94,9 +94,6 @@ export default function ContactInformation() {
       },
     ]);
 
-    console.log(inputarr);
-    console.log(details);
-
     setDetails({
       firstname: "",
       lastname: "",
@@ -110,7 +107,7 @@ export default function ContactInformation() {
   return (
     <>
       <h2>Contact Form</h2>
-      <form onSubmit={handleSubmit} action=".">
+      <form onSubmit={handleSubmit}>
         <Stack spacing={2} direction="row" sx={{ marginBottom: 4 }}>
           <TextField
             name="firstname"
@@ -209,7 +206,6 @@ export default function ContactInformation() {
           <TableBody>
             {rows.map((row) => (
               <TableRow
-                key={row.firstname}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">

@@ -4,8 +4,10 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
+import axios from "axios";
 
-export default function FormDialog() {
+export default function ModalDelete(props) {
+  console.log(props.data);
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -14,6 +16,17 @@ export default function FormDialog() {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:3000/contacts/${id}`)
+      .then((response) => {
+        console.log("Data deleted:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error deleting data:", error);
+      });
   };
 
   return (
@@ -41,7 +54,7 @@ export default function FormDialog() {
             Are You Sure Want To Delete Details.
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
+        <DialogActions onClick={() => handleDelete(props.data._id)}>
           <Button onClick={handleClose}>Cancel</Button>
           <Button type="submit">Delete</Button>
         </DialogActions>

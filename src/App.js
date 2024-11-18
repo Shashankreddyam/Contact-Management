@@ -1,6 +1,4 @@
 import { Typography } from "@mui/material";
-import ModalEdit from "./components/ModalEdit.jsx";
-import ModalDelete from "./components/ModalDelete.jsx";
 import ContactsInfo from "./components/ContactsInfo.jsx";
 import Contactsview from "./components/Contactsview.jsx";
 
@@ -12,8 +10,6 @@ function App() {
       </Typography>
       <ContactsInfo />
       <Contactsview />
-      <ModalEdit />
-      <ModalDelete />
     </div>
   );
 }

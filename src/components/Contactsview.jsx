@@ -17,7 +17,6 @@ const Contactsview = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    debugger;
     // Example of a GET request
     axios
       .get("http://localhost:3000/contacts")
@@ -72,10 +71,10 @@ const Contactsview = () => {
                 <TableCell align="right">{row.company}</TableCell>
                 <TableCell align="right">{row.jobtitle}</TableCell>
                 <TableCell align="right">
-                  <ModalEdit />
+                  <ModalEdit data={row} />
                 </TableCell>
                 <TableCell align="right">
-                  <ModalDelete />
+                  <ModalDelete data={row} />
                 </TableCell>
               </TableRow>
             ))}
